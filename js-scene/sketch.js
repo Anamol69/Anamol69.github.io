@@ -14,13 +14,13 @@ let playerScore = 0;
 let aiScore = 0;
 
 function setup() {
-  createCanvas(800, 400);
+  createCanvas(windowWidth, windowHeight);
   noStroke();
   leftPaddleY = height / 2 - paddleHeight / 2;
   rightPaddleY = height / 2 - paddleHeight / 2;
   ball = createBall();
-  ballSpeedX = 5;
-  ballSpeedY = 5;
+  ballSpeedX = 7;
+  ballSpeedY = 7;
 }
 
 function draw() {
@@ -50,9 +50,9 @@ function draw() {
     // AI for the right paddle
     let rightPaddleCenter = rightPaddleY + paddleHeight / 2;
     if (rightPaddleCenter < ball.y - 15) {
-      rightPaddleY += 5;
+      rightPaddleY += 7;
     } else if (rightPaddleCenter > ball.y + 15) {
-      rightPaddleY -= 5;
+      rightPaddleY -= 7;
     }
     
     
@@ -120,8 +120,8 @@ function drawBall(ball) {
 function resetGame() {
   gameStarted = false;
   ball = createBall();
-  ballSpeedX = random() > 0.5 ? 5 : -5; // Randomize ball direction
-  ballSpeedY = random() > 0.5 ? 5 : -5;
+  ballSpeedX = random() > 0.7 ? 7 : -7; // Randomize ball direction
+  ballSpeedY = random() > 0.7 ? 7 : -7;
   leftPaddleY = height / 2 - paddleHeight / 2;
   rightPaddleY = height / 2 - paddleHeight / 2;
 }
