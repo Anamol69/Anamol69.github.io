@@ -46,14 +46,22 @@ function draw() {
     if (keyIsDown(83) && leftPaddleY < height - paddleHeight) {
       leftPaddleY += 5; // "S" key moves down (left player)
     }
+    // Move paddles with keyboard
+    if (keyIsDown(87) && rightPaddleY > 0) {
+      leftPaddleY -= 5; // "W" key moves up (left player)
+    }
+    if (keyIsDown(83) && rightPaddleY < height - paddleHeight) {
+      leftPaddleY += 5; // "S" key moves down (left player)
+    }
+
 
     // AI for the right paddle
-    let rightPaddleCenter = rightPaddleY + paddleHeight / 2;
-    if (rightPaddleCenter < ball.y - 15) {
-      rightPaddleY += 7;
-    } else if (rightPaddleCenter > ball.y + 15) {
-      rightPaddleY -= 7;
-    }
+    //let rightPaddleCenter = rightPaddleY + paddleHeight / 2;
+    //if (rightPaddleCenter < ball.y - 15) {
+    //  rightPaddleY += 7;
+    //} else if (rightPaddleCenter > ball.y + 15) {
+    //  rightPaddleY -= 7;
+    //}
     
     
 
