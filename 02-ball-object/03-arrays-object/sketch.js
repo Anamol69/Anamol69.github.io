@@ -9,7 +9,7 @@ let Jake = {
   age: 16,
   eyeColor: "blue"
 }
-let choice = [Jake, Jacob, Julian, Josh, James, Jeremy, Jarol, Jamal, Jace, Jordan, Jason, Jay, Jaclon, J];
+let choice = [Jake, Jacob, Julian, Josh, James, Jeremy, Jarol, Jamal, Jace, Jordan, Jason, Jay, Jaclon];
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
