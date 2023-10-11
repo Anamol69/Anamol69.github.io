@@ -6,3 +6,4 @@
 
 ## Projects
 - [Interactive Scene](js-scene)
+- [Arrays/Objects Assignment](03-arrays-object)
