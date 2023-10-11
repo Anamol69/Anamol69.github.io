@@ -20,8 +20,8 @@ function draw() {
 }
 
 function keyTyped() {
-  if (key === " ") {
-    let someBall= spawnBall();
+  if (keyIsDown) {
+    let someBall = spawnBall();
     ballArray.push(someBall);
   }
 }
