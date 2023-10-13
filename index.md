@@ -4,6 +4,7 @@
 - [Bouncing Ball](01-Ball)
 - [Ball Object Notation](02-ball-object)
 - [Perlin Noise Ball](03-noise-ball)
+- [Translate Rotate](04-translate-rotate)
 
 ## Projects
 - [Interactive Scene](js-scene)
