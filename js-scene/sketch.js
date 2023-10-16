@@ -19,18 +19,18 @@ function setup() {
   leftPaddleY = height / 2 - paddleHeight / 2;
   rightPaddleY = height / 2 - paddleHeight / 2;
   ball = createBall();
-  ballSpeedX = 7;
-  ballSpeedY = 7;
+  ballSpeedX = 8.5;
+  ballSpeedY = 8.5;
 }
 
 function draw() {
   background(0);
   
   if (!gameStarted){
-      screenPressed();
-    }
+    screenPressed();
+  }
     
-    console.log(keyCode);
+  console.log(keyCode);
 
   if (gameStarted) {
     // Draw paddles and ball
@@ -46,21 +46,20 @@ function draw() {
     if (keyIsDown(83) && leftPaddleY < height - paddleHeight) {
       leftPaddleY += 5; // "S" key moves down (left player)
     }
-    // Move paddles with keyboard
-    if (keyIsDown(87) && rightPaddleY > 0) {
-      leftPaddleY -= 5; // "W" key moves up (left player)
+    if (keyIsDown(38) && rightPaddleY > 0) {
+      rightPaddleY -= 5; // "UP ARROW" key moves up (left player)
     }
-    if (keyIsDown(83) && rightPaddleY < height - paddleHeight) {
-      leftPaddleY += 5; // "S" key moves down (left player)
+    if (keyIsDown(40) && rightPaddleY < height - paddleHeight) {
+      rightPaddleY += 5; // "DOWN ARROW" key moves down (left player)
     }
-
 
     // AI for the right paddle
     //let rightPaddleCenter = rightPaddleY + paddleHeight / 2;
     //if (rightPaddleCenter < ball.y - 15) {
-    //  rightPaddleY += 7;
-    //} else if (rightPaddleCenter > ball.y + 15) {
-    //  rightPaddleY -= 7;
+    //  rightPaddleY += 5;
+    //} 
+    //else if (rightPaddleCenter > ball.y + 15) {
+    //  rightPaddleY -= 5;
     //}
     
     
@@ -92,7 +91,8 @@ function draw() {
     if (ball.x < 0) {
       aiScore++;
       resetGame();
-    } else if (ball.x > width) {
+    } 
+    else if (ball.x > width) {
       playerScore++;
       resetGame();
     }
@@ -101,7 +101,8 @@ function draw() {
     textSize(32);
     fill(255);
     text(playerScore + " - " + aiScore, width / 2, 30);
-  } else {
+  } 
+  else {
     // Start screen
     fill(255);
     textSize(32);
@@ -128,8 +129,8 @@ function drawBall(ball) {
 function resetGame() {
   gameStarted = false;
   ball = createBall();
-  ballSpeedX = random() > 0.7 ? 7 : -7; // Randomize ball direction
-  ballSpeedY = random() > 0.7 ? 7 : -7;
+  ballSpeedX = random() > 0.5 ? 8.5 : -8.5; // Randomize ball direction
+  ballSpeedY = random() > 0.5 ? 8.5 : -8.5;
   leftPaddleY = height / 2 - paddleHeight / 2;
   rightPaddleY = height / 2 - paddleHeight / 2;
 }
@@ -139,7 +140,8 @@ function screenPressed() {
     // Start the game when MOUSE key is pressed
     if (!gameStarted) {
       gameStarted = true;
-    } else {
+    } 
+    else {
       // Reset scores and ball position
       playerScore = 0;
       aiScore = 0;
