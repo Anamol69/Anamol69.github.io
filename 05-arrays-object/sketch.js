@@ -4,12 +4,18 @@
 //
 // Extra for Experts:
 // - describe what you did to take this project "above and beyond"
-let Jake = {
-  name: "Jake",
-  age: 16,
-  eyeColor: "blue"
+
+let questionMan;
+let answerMan;
+let court;
+
+function preload() {
+  court = loadImage("court-room.jpg");
+  questionMan = loadImage("question-man.jpg");
+  answerMan = loadImage("answer-man.png");
+
+
 }
-let choice = [Jake, Jacob, Julian, Josh, James, Jeremy, Jarol, Jamal, Jace, Jordan, Jason, Jay, Jaclon];
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
