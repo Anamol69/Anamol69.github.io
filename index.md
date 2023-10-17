@@ -5,6 +5,7 @@
 - [Ball Object Notation](02-ball-object)
 - [Perlin Noise Ball](03-noise-ball)
 - [Translate Rotate](04-translate-rotate)
+- [Sounds and Images](05-sound)
 
 ## Projects
 - [Interactive Scene](js-scene)
