@@ -9,4 +9,4 @@
 
 ## Projects
 - [Interactive Scene](js-scene)
-- [Arrays/Objects Assignment](05-arrays-object)
+- [Arrays/Objects Assignment](arrays-project)
