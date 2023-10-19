@@ -8,6 +8,13 @@
 // would be the "forEach" in line 13. Everything else was taught in class, or are from previous days in class.
 
 let shapes = [];
+let clickSound;
+
+function preload() {
+  clickSound = loadSound("click-sound.wav");
+
+  clickSound.setVolume(1.0);
+}
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -68,3 +75,8 @@ function createRandomShape() {
   return shape;
 }
 
+function mouseClicked() {
+  if (screenClicked) {
+    clickSound.play();
+  }
+}
