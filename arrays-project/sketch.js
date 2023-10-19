@@ -1,49 +1,66 @@
-// Project Title
-// Your Name
-// Date
-//
-// Extra for Experts:
-// - describe what you did to take this project "above and beyond"
+//Array and Object Notation Assignment
+// Anamol Dhakal
+// Period 3
+// Creates random shapes from circles to squares, assigns random values to it within a max and min so that the screen doesn't randomly get filled with one big shape the size of the window. A simple project that makes use of both arrays and object notation.
+// Extra for experts: I do not think there is anything new that I have included in here, the only one that I don't recall learning in class would be the "forEach" in line 13. Everything else was taught in class, or are from previous days in class.
 
-let questionMan;
-let answerMan;
-let court;
-let suspenseMusic;
-let gameStarted = false;
-
-function preload() {
-  court = loadImage("court-room.jpg");
-  questionMan = loadImage("question-man.png");
-  answerMan = loadImage("answer-man.png");
-  suspenseMusic = loadSound("suspense-music.wav");
-
-  suspenseMusic.setVolume(0.5);
-}
+let shapes = [];
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  
+  background(0);
 }
 
 function draw() {
-  background(220);
-  if (gameStarted) {
-    // Start screen
-    fill(255);
-    textSize(32);
-    textAlign(CENTER, CENTER);
-    text("THE COURT", width / 2, height / 2 - 30);
-    textSize(18);
-    text("Press MOUSE to enter THE COURT!", width / 2, height / 2 + 30);
+  console.log(keyCode);
+  shapes.forEach(displayShape);
+}
+
+// Calls to this every time the mouse is pressed, adding shapes
+function mousePressed() {
+  addRandomShapes(10);
+
+}
+
+// Displays the shapes that were made
+function displayShape(shape) {
+  fill(shape.color);
+  noStroke();
+  if (shape.shapeType === "ellipse") {
+    ellipse(shape.x, shape.y, shape.size, shape.size);
+  } 
+  else {
+    rect(shape.x, shape.y, shape.size, shape.size);
   }
 }
 
-function screenPressed() {
-  if (!suspenseMusic.isPlaying()) {
-    suspenseMusic.loop();
+function screenClicked() {
+  shapes = [];
+}
+
+// This pushes random shapes that were made
+function addRandomShapes(count) {
+  for (let i = 0; i < count; i++) {
+    shapes.push(createRandomShape());
   }
 }
 
+// Creates random values for the shapes
+function createRandomShape() {
+  let shape = {
+    x: random(width),
+    y: random(height),
+    size: random(20, 50),
+    color: color(random(255), random(255), random(255)),
+  };
 
-
+  // Checks if the shape should be an ellipse or a rectangle
+  if (random(1) < 0.5) {
+    shape.shapeType = "ellipse";
+  } 
+  else {
+    shape.shapeType = "rect";
+  }
+  return shape;
+}
 
