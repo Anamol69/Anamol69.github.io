@@ -75,11 +75,11 @@ function draw() {
 
     // Ball-paddle collisions
     if (
-      (ball.x < 20 + paddleWidth &&
+      ball.x < 20 + paddleWidth &&
         ball.x > 20 &&
-        ball.y > leftPaddleY &&
+        (ball.y > leftPaddleY &&
         ball.y < leftPaddleY + paddleHeight) ||
-      (ball.x > width - 30 - paddleWidth &&
+        (ball.x > width - 30 - paddleWidth &&
         ball.x < width - 30 &&
         ball.y > rightPaddleY &&
         ball.y < rightPaddleY + paddleHeight)
