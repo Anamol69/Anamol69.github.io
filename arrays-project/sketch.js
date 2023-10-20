@@ -82,14 +82,7 @@ function mouseClicked() {
   if (screenClicked) {
     clickSound.play();
   if (!backgroundMusic.isPlaying()) {
-    backgroundMusic.loop()
-  }
-}
-}
-function mousePressed() {
-  explosionSound.play();
-
-  if (!backgroundMusic.isPlaying()) {
     backgroundMusic.loop();
   }
+}
 }
