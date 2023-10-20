@@ -9,6 +9,7 @@
 
 let shapes = [];
 let clickSound;
+let backgroundMusic;
 
 function preload() {
   clickSound = loadSound("click-sound.wav");
@@ -24,14 +25,15 @@ function setup() {
 }
 
 function draw() {
-  textSize(40);
   console.log(keyCode);
   shapes.forEach(displayShape);
 }
 
 // Calls to this every time the mouse is pressed, adding shapes
 function mousePressed() {
-  addRandomShapes(5);
+  if (shapes.length === 0) {
+  }
+    addRandomShapes(5);
 
 }
 
