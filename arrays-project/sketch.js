@@ -12,7 +12,9 @@ let clickSound;
 
 function preload() {
   clickSound = loadSound("click-sound.wav");
+  backgroundMusic = loadSound("music.wav");
 
+  backgroundMusic.setVolume(0.1);
   clickSound.setVolume(1.0);
 }
 
@@ -78,5 +80,15 @@ function createRandomShape() {
 function mouseClicked() {
   if (screenClicked) {
     clickSound.play();
+  if (!backgroundMusic.isPlaying()) {
+    backgroundMusic.loop()
+  }
+}
+}
+function mousePressed() {
+  explosionSound.play();
+
+  if (!backgroundMusic.isPlaying()) {
+    backgroundMusic.loop();
   }
 }
