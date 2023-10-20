@@ -12,6 +12,12 @@ let ballSpeedY;
 let gameStarted = false;
 let playerScore = 0;
 let aiScore = 0;
+let music;
+
+function preload() {
+  music = loadSound("game-music.wav");
+  music.setVolume(0.1);
+}
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -147,5 +153,13 @@ function screenPressed() {
       aiScore = 0;
       resetGame();
     }
+  }
+}
+
+function mousePressed() {
+  music.play();
+
+  if (!music.isPlaying()) {
+    music.loop();
   }
 }
