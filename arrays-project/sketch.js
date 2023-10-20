@@ -34,7 +34,6 @@ function mousePressed() {
   if (shapes.length === 0) {
   }
     addRandomShapes(5);
-
 }
 
 // Displays the shapes that were made
