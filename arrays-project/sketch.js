@@ -9,10 +9,13 @@
 
 let shapes = [];
 let clickSound;
+let backgroundMusic;
 
 function preload() {
   clickSound = loadSound("click-sound.wav");
+  backgroundMusic = loadSound("music.wav");
 
+  backgroundMusic.setVolume(0.1);
   clickSound.setVolume(1.0);
 }
 
@@ -22,7 +25,6 @@ function setup() {
 }
 
 function draw() {
-  textSize(40);
   console.log(keyCode);
   shapes.forEach(displayShape);
 }
@@ -77,5 +79,8 @@ function createRandomShape() {
 function mouseClicked() {
   if (screenClicked) {
     clickSound.play();
+    if (!backgroundMusic.isPlaying()) {
+      backgroundMusic.loop();
+    }
   }
 }
