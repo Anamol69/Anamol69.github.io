@@ -30,7 +30,6 @@ function draw() {
 // Calls to this every time the mouse is pressed, adding shapes
 function mousePressed() {
   addRandomShapes(5);
-
 }
 
 // Displays the shapes that were made
