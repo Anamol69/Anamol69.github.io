@@ -7,7 +7,8 @@
 - [Translate Rotate](04-translate-rotate)
 - [Sounds and Images](05-sound)
 - [Terrain Generation](06-terrain)
-- [2D-Array](07-2DArray)
+- [Draw a Grid](07-2DArray)
+- [Grid Neighbours](08-neighbours)
 
 ## Projects
 - [Interactive Scene](js-scene)
