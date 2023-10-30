@@ -9,7 +9,10 @@
 - [Terrain Generation](06-terrain)
 - [Draw a Grid](07-2DArray)
 - [Grid Neighbours](08-neighbours)
+- [Game of Life](09-game-of-life)
+- [Character in Grid](10-character-in-grid)
 
 ## Projects
-- [Interactive Scene](js-scene)
+- [Interactive Scene](js-scene-project)
 - [Arrays/Objects Assignment](arrays-project)
+- [2D Grid Assignment](2D-grid-project)
