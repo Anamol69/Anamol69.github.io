@@ -1,9 +1,8 @@
-// Project Title
-// Your Name
-// Date
-//
+// 2D Grid Array
+// Anamol Dhakal
+// 10/20/2023
 // Extra for Experts:
-// - describe what you did to take this project "above and beyond"
+// -
 
 
 function setup() {
