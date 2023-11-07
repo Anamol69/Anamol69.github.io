@@ -11,6 +11,7 @@
 - [Grid Neighbours](08-neighbours)
 - [Game of Life](09-game-of-life)
 - [Character in Grid](10-character-in-grid)
+- [Platformer](11-grid-text)
 
 ## Projects
 - [Interactive Scene](js-scene-project)
