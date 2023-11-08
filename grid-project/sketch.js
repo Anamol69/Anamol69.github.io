@@ -9,11 +9,9 @@ let grid;
 const GRID_SIZE = 40;
 let cellSize;
 let autoPlay = true;
-let gosperGun;
 
-function preload() {
-  gosperGun = loadJSON("gosper-gun.json");
-}
+
+
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -47,9 +45,6 @@ function keyTyped() {
   }
   else if (key === "a") {
     autoPlay = !autoPlay;
-  }
-  else if (key === "g") {
-    grid = gosperGun;
   }
 }
 
