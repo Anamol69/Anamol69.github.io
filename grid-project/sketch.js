@@ -29,15 +29,18 @@ function keyPressed() {
   const { x, y } = player;
   if (keyCode === UP_ARROW && y > 0 && !grid[y - 1][x].obstacle) {
     player.y -= 1;
-  } else if (keyCode === DOWN_ARROW && y < rows - 1 && !grid[y + 1][x].obstacle) {
+  } 
+  else if (keyCode === DOWN_ARROW && y < rows - 1 && !grid[y + 1][x].obstacle) {
     player.y += 1;
-  } else if (keyCode === LEFT_ARROW && x > 0 && !grid[y][x - 1].obstacle) {
+  } 
+  else if (keyCode === LEFT_ARROW && x > 0 && !grid[y][x - 1].obstacle) {
     player.x -= 1;
-  } else if (keyCode === RIGHT_ARROW && x < cols - 1 && !grid[y][x + 1].obstacle) {
+  } 
+  else if (keyCode === RIGHT_ARROW && x < cols - 1 && !grid[y][x + 1].obstacle) {
     player.x += 1;
   }
 // console logs a win message
-  if (player.x === target.x && player.y === target.y) {
+if (player.x === target.x && player.y === target.y) {
     console.log("You reached the target!");
   }
 }
