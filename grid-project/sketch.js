@@ -1,158 +1,104 @@
 // 2D Grid Array/ SNAKE GAME
 // Anamol Dhakal
 // 10/20/2023
-// Extra for Experts:
-// -
+// Extra for Experts: There is nothing in particular that I did in this project that would be worth to consider Extra for Experts.
 
-
+// setting variables and logic
+const rows = 25;
+const cols = 25;
+const cellSize = 25;
 let grid;
-const GRID_SIZE = 40;
-let cellSize;
-let autoPlay = true;
-
-
-
+let player;
+let target;
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
-  grid = generateRandomGrid(GRID_SIZE, GRID_SIZE);
-
-  if (height > width) {
-    cellSize = width/GRID_SIZE;
-  }
-  else {
-    cellSize = height/GRID_SIZE;
-  }
+  createCanvas(cols * cellSize, rows * cellSize);
+  grid = createGrid(cols, rows);
+  player = createPlayer();
+  target = createTarget();
 }
 
 function draw() {
-  background(220);
-  if (autoPlay && frameCount % 10 === 0) {
-    grid = nextTurn();
-  }
+  background(255);
   displayGrid();
+  displayPlayer();
+  displayTarget();
 }
-
-function keyTyped() {
-  if (key === "r") {
-    grid = generateRandomGrid(GRID_SIZE, GRID_SIZE);
+// checks key inputs an moves
+function keyPressed() {
+  const { x, y } = player;
+  if (keyCode === UP_ARROW && y > 0 && !grid[y - 1][x].obstacle) {
+    player.y -= 1;
+  } else if (keyCode === DOWN_ARROW && y < rows - 1 && !grid[y + 1][x].obstacle) {
+    player.y += 1;
+  } else if (keyCode === LEFT_ARROW && x > 0 && !grid[y][x - 1].obstacle) {
+    player.x -= 1;
+  } else if (keyCode === RIGHT_ARROW && x < cols - 1 && !grid[y][x + 1].obstacle) {
+    player.x += 1;
   }
-  else if (key === "e") {
-    grid = generateEmptyGrid(GRID_SIZE, GRID_SIZE);
-  }
-  else if (key === " ") {
-    grid = nextTurn();
-  }
-  else if (key === "a") {
-    autoPlay = !autoPlay;
+// console logs a win message
+  if (player.x === target.x && player.y === target.y) {
+    console.log("You reached the target!");
   }
 }
-
-function nextTurn() {
-  let nextTurnGrid = generateEmptyGrid(GRID_SIZE, GRID_SIZE);
-
-  //look at every cell
-  for (let y = 0; y < GRID_SIZE; y++) {
-    for (let x = 0; x < GRID_SIZE; x++) {
-      //count neighbours
-      let neighbours = 0;
-
-      //look at all cells around in a 3x3 grid
-      for (let i = -1; i <= 1; i++) {
-        for (let j = -1; j <= 1; j++) {
-          //detect edge cases
-          if (y+i >= 0 && y+i < GRID_SIZE && x+j >= 0 && x+j < GRID_SIZE) {
-            neighbours += grid[y+i][x+j];
-          }
-        }
-      }
-      
-      //be careful about counting self
-      neighbours -= grid[y][x];
-
-      //apply rules
-      if (grid[y][x] === 1) { //alive
-        if (neighbours === 2 || neighbours === 3) {
-          //stay alive
-          nextTurnGrid[y][x] = 1;
-        }
-        else {
-          //died - lonely or overpopulation
-          nextTurnGrid[y][x] = 0;
-        }
-      }
-
-      if (grid[y][x] === 0) { //dead
-        if (neighbours === 3) {
-          //new birth
-          nextTurnGrid[y][x] = 1;
-        }
-        else {
-          //stay dead
-          nextTurnGrid[y][x] = 0;
-        }
-      }
+// creates the grid
+function createGrid(cols, rows) {
+  const grid = new Array(rows);
+  for (let i = 0; i < rows; i++) {
+    grid[i] = new Array(cols);
+    for (let j = 0; j < cols; j++) {
+      grid[i][j] = {
+        obstacle: random() > 0.8, // 20% chance of being an obstacle
+      };
     }
   }
-  return nextTurnGrid;
+  return grid;
 }
-
-function mousePressed() {
-  let y = Math.floor(mouseY/cellSize);
-  let x = Math.floor(mouseX/cellSize);
-
-  toggleCell(x, y);   //current cell
+// creates the player
+function createPlayer() {
+  return {
+    x: 0,
+    y: 0,
+  };
 }
-
-function toggleCell(x, y) {
-  //check that we are within the grid, then toggle
-  if (x >= 0 && x < GRID_SIZE && y >= 0 && y < GRID_SIZE) {
-    if (grid[y][x] === 0) {
-      grid[y][x] = 1;
-    }
-    else if (grid[y][x] === 1) {
-      grid[y][x] = 0;
-    }
-  }
+// creates the target
+function createTarget() {
+  let target;
+  do {
+    target = {
+      x: floor(random(cols)),
+      y: floor(random(rows)),
+    };
+  } while (grid[target.y][target.x].obstacle);
+  return target;
 }
-
+// displays everything
 function displayGrid() {
-  for (let y = 0; y < GRID_SIZE; y++) {
-    for (let x = 0; x < GRID_SIZE; x++) {
-      if (grid[y][x] === 0) {
-        fill("white");
-      }
-      else if (grid[y][x] === 1) {
-        fill("black");
-      }
-      rect(x*cellSize, y*cellSize, cellSize, cellSize);
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+      const x = j * cellSize;
+      const y = i * cellSize;
+      fill(grid[i][j].obstacle ? 0 : 255);
+      stroke(0);
+      rect(x, y, cellSize, cellSize);
     }
   }
 }
 
-function generateRandomGrid(cols, rows) {
-  let newGrid = [];
-  for (let y = 0; y < rows; y++) {
-    newGrid.push([]);
-    for (let x = 0; x < cols; x++) {
-      if (random(100) < 50) {
-        newGrid[y].push(0);
-      }
-      else {
-        newGrid[y].push(1);
-      }
-    }
-  }
-  return newGrid;
+function displayPlayer() {
+  const x = player.x * cellSize + cellSize / 2;
+  const y = player.y * cellSize + cellSize / 2;
+  fill(0, 0, 255);
+  noStroke();
+  ellipse(x, y, cellSize * 0.8);
 }
 
-function generateEmptyGrid(cols, rows) {
-  let newGrid = [];
-  for (let y = 0; y < rows; y++) {
-    newGrid.push([]);
-    for (let x = 0; x < cols; x++) {
-      newGrid[y].push(0);
-    }
-  }
-  return newGrid;
+function displayTarget() {
+  const x = target.x * cellSize + cellSize / 2;
+  const y = target.y * cellSize + cellSize / 2;
+  fill(255, 0, 0);
+  noStroke();
+  ellipse(x, y, cellSize * 0.8);
 }
+
+
