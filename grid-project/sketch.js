@@ -39,8 +39,8 @@ function keyPressed() {
   else if (keyCode === RIGHT_ARROW && x < cols - 1 && !grid[y][x + 1].obstacle) {
     player.x += 1;
   }
-// console logs a win message
-if (player.x === target.x && player.y === target.y) {
+  // console logs a win message
+  if (player.x === target.x && player.y === target.y) {
     console.log("You reached the target!");
   }
 }
