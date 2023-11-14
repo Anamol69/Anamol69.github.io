@@ -13,6 +13,7 @@
 - [Character in Grid](10-character-in-grid)
 - [Platformer](11-grid-text)
 - [Dog OOP Demo](12-dog-oop)
+- [Walker OOP Demo](13-walker-oop)
 
 ## Projects
 - [Interactive Scene](js-scene-project)
