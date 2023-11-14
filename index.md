@@ -12,6 +12,7 @@
 - [Game of Life](09-game-of-life)
 - [Character in Grid](10-character-in-grid)
 - [Platformer](11-grid-text)
+- [Dog OOP Demo](12-dog-oop)
 
 ## Projects
 - [Interactive Scene](js-scene-project)
