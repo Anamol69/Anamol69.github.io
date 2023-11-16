@@ -15,6 +15,7 @@
 - [Dog OOP Demo](12-dog-oop)
 - [Walker OOP Demo](13-walker-oop)
 - [Ball OOP Demo](14-ball-oop)
+- [Connected Ball OOP Demo](15-nodes)
 
 ## Projects
 - [Interactive Scene](js-scene-project)
