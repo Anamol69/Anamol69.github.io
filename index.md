@@ -19,6 +19,7 @@
 - [Fireworks OOP Demo](16-fireworks)
 - [Inheritance OOP Demo](17-inheritance)
 - [Collision Demo](18-collision)
+- [p5play Template](19-p5play)
 
 ## Projects
 - [Interactive Scene](js-scene-project)
