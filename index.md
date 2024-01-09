@@ -21,6 +21,7 @@
 - [Collision Demo](18-collision)
 - [p5play Template](19-p5play)
 - [Recursive Circles](20-circle-recursion)
+- [Sierpinski Triangle](21-Sierpinski)
 
 ## Projects
 - [Interactive Scene](js-scene-project)
